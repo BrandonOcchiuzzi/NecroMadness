@@ -53,6 +53,9 @@ TagManager:
   - name: Cave_Walls
     uniqueID: 2621105025
     locked: 0
+  - name: Decoration
+    uniqueID: 41803531
+    locked: 0
   - name: Player
     uniqueID: 3881459631
     locked: 0
