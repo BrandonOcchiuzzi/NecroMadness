@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9011728326885508579}
   - component: {fileID: 9011728326885508580}
   - component: {fileID: 5692201335329231374}
+  - component: {fileID: 1831163662012360334}
   m_Layer: 0
   m_Name: SummoningCrystal
   m_TagString: Untagged
@@ -110,7 +111,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9011728326885508581}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -136,3 +137,19 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -0.07}
       - {x: 0.089999996, y: 0.08}
       - {x: 0.06, y: 0.11}
+--- !u!58 &1831163662012360334
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011728326885508581}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00030422708, y: -0.0006085734}
+  serializedVersion: 2
+  m_Radius: 0.050760433
