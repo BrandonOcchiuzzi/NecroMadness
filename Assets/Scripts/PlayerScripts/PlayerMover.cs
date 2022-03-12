@@ -51,17 +51,19 @@ public class PlayerMover : MonoBehaviour
     {
         if (moveDirection.x == 0 || moveDirection.y == 0)
         {
+            Debug.Log("FIRST IF");
             rbody.velocity = new Vector2(moveDirection.x * speed * Time.deltaTime, moveDirection.y * speed * Time.deltaTime);
             lastVelocity = rbody.velocity;
         }
         else
         {
+            Debug.Log("ELSE STATEMENT");
             rbody.velocity = lastVelocity;
         }
 
         if (rbody.velocity.x > 0)
         {
-            Debug.Log("velocity " + rbody.velocity.x);
+            Debug.Log("velocity x" + rbody.velocity.x);
             animator.SetInteger("Axis", 1);
             Debug.Log("animator " + animator.GetInteger("Axis"));
 
@@ -69,7 +71,7 @@ public class PlayerMover : MonoBehaviour
         }
         else if (rbody.velocity.x < 0)
         {
-            Debug.Log("velocity " + rbody.velocity.x);
+            Debug.Log("velocity x" + rbody.velocity.x);
             animator.SetInteger("Axis", 1);
             Debug.Log("animator " + animator.GetInteger("Axis"));
 
@@ -78,7 +80,7 @@ public class PlayerMover : MonoBehaviour
 
         else if (rbody.velocity.y > 0)
         {
-            Debug.Log("velocity " + rbody.velocity.y);
+            Debug.Log("velocity y" + rbody.velocity.y);
             animator.SetInteger("Axis", 2);
             Debug.Log("animator " + animator.GetInteger("Axis"));
 
@@ -87,7 +89,7 @@ public class PlayerMover : MonoBehaviour
 
         else if (rbody.velocity.y < 0)
         {
-            Debug.Log("velocity " + rbody.velocity.y);
+            Debug.Log("velocity y" + rbody.velocity.y);
             animator.SetInteger("Axis", 0);
             Debug.Log("animator " + animator.GetInteger("Axis"));
 
@@ -95,7 +97,7 @@ public class PlayerMover : MonoBehaviour
         }
 
 
-        animator.SetFloat("Speed", Mathf.Abs(moveDirection.x + moveDirection.y));
+        animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x + rbody.velocity.y));
 
     }
 
