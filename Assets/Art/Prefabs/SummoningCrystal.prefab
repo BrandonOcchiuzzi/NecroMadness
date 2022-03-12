@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 9011728326885508578}
   - component: {fileID: 9011728326885508579}
   - component: {fileID: 9011728326885508580}
-  - component: {fileID: 5692201335329231374}
-  - component: {fileID: 1831163662012360334}
+  - component: {fileID: 79106597401436264}
   m_Layer: 0
   m_Name: SummoningCrystal
   m_TagString: Untagged
@@ -104,41 +103,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!60 &5692201335329231374
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9011728326885508581}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.06, y: 0.11}
-      - {x: -0.089999996, y: 0.08}
-      - {x: -0.089999996, y: -0.06}
-      - {x: -0.07, y: -0.11}
-      - {x: 0.08, y: -0.11}
-      - {x: 0.089999996, y: -0.07}
-      - {x: 0.089999996, y: 0.08}
-      - {x: 0.06, y: 0.11}
---- !u!58 &1831163662012360334
-CircleCollider2D:
+--- !u!70 &79106597401436264
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,6 +116,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00030422708, y: -0.0006085734}
-  serializedVersion: 2
-  m_Radius: 0.050760433
+  m_Offset: {x: 0.00034602484, y: 0.00034569702}
+  m_Size: {x: 0.14912447, y: 0.20031828}
+  m_Direction: 0
