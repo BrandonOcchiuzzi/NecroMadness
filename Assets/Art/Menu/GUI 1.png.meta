@@ -29,6 +29,12 @@ TextureImporter:
   - first:
       213: -7168545074560663072
     second: TickSelected
+  - first:
+      213: -3744600892691428516
+    second: PauseButton01
+  - first:
+      213: 418380396255084587
+    second: PauseButton02
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -327,7 +333,7 @@ TextureImporter:
         width: 64
         height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -348,7 +354,7 @@ TextureImporter:
         width: 64
         height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,6 +362,48 @@ TextureImporter:
       bones: []
       spriteID: 0e18f6a3c36348c90800000000000000
       internalID: -7168545074560663072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseButton01
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 860
+        width: 348
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5b448de351880cc0800000000000000
+      internalID: -3744600892691428516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseButton02
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 860
+        width: 348
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2085c3f0c26ec500800000000000000
+      internalID: 418380396255084587
       vertices: []
       indices: 
       edges: []

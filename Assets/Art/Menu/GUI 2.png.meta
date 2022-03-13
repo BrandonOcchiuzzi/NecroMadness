@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -2474746085773965910
     second: MenuBox01
+  - first:
+      213: 6561604850718056862
+    second: PauseBox
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -122,6 +125,27 @@ TextureImporter:
       bones: []
       spriteID: aa58728fb8fe7add0800000000000000
       internalID: -2474746085773965910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseBox
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 550
+        width: 618
+        height: 983
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e91a78bc8d08f0b50800000000000000
+      internalID: 6561604850718056862
       vertices: []
       indices: 
       edges: []
