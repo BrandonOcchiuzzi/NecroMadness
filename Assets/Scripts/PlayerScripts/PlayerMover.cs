@@ -38,7 +38,10 @@ public class PlayerMover : MonoBehaviour
     public bool lookingLeft = false;
     private bool m_Pressed;
 
-    public int health = 3;
+    //Health, Damage, Healing
+    public int maxHealth = 10;
+    public int currentHealth;
+    public HealthBar healthBar;
 
 
     Vector2 moveDirection = Vector2.zero;
@@ -52,6 +55,9 @@ public class PlayerMover : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
+
+        currentHealth = maxHealth; //sets hp to maxHealth upon load
+        healthBar.SetMaxHealth(maxHealth); //SetMaxHealth Method in healthbar script
     }
 
     public void UpdateAnimClipTimes()
@@ -91,6 +97,19 @@ public class PlayerMover : MonoBehaviour
     private void Update()
     {
         moveDirection = playerController.Default.Move.ReadValue<Vector2>();
+
+        //*************************************************************
+        if (Input.GetKeyDown(KeyCode.Tab)) //just for testing of HP bar
+        {                                  //with taking damage. 
+            TakeDamage(1);
+        }
+        //*************************************************************
+    }
+
+    void TakeDamage(int damage) //allows taking of damage and passes it to the health bar
+    {
+        currentHealth -= damage; //sets current health based on dmg taken
+        healthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
     }
 
 

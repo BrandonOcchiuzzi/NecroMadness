@@ -165,7 +165,7 @@ public class SkeletonPatterns : MonoBehaviour
         health--;
         if (health == 0)
         {
-            Debug.Log("i'm death :( ");
+            Debug.Log("i'm dead :( ");
             StartCoroutine(Defeated());
         }
     }

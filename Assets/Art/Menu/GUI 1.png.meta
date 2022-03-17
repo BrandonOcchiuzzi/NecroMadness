@@ -35,6 +35,12 @@ TextureImporter:
   - first:
       213: 418380396255084587
     second: PauseButton02
+  - first:
+      213: 4026252934400412259
+    second: hp_slider
+  - first:
+      213: 5832253642868715984
+    second: HealthBarHeart
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -375,7 +381,7 @@ TextureImporter:
         width: 348
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -396,7 +402,7 @@ TextureImporter:
         width: 348
         height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,6 +410,48 @@ TextureImporter:
       bones: []
       spriteID: b2085c3f0c26ec500800000000000000
       internalID: 418380396255084587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hp_slider
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 407
+        width: 430
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36a8fca36bf10e730800000000000000
+      internalID: 4026252934400412259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthBarHeart
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 713
+        width: 120
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d1fa2f99c350f050800000000000000
+      internalID: 5832253642868715984
       vertices: []
       indices: 
       edges: []
