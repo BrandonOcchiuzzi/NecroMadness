@@ -89,7 +89,7 @@ public class PlayerMover : MonoBehaviour
 
         speed = 0;
 
-        yield return new WaitForSeconds(attackTime/2);
+        yield return new WaitForSeconds(attackTime);
 
         speed = tempSpeed;
 
