@@ -28,9 +28,26 @@ public class PlayerMover : MonoBehaviour
     Vector2 lastVelocity = Vector2.zero;
     private PlayerController playerController;
 
+    public float attackTime;
+
     private void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        UpdateAnimClipTimes();
+    }
+
+    public void UpdateAnimClipTimes()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach(AnimationClip clip in clips)
+        {
+            switch(clip.name)
+            {
+                case "player_attack_front":
+                    attackTime = clip.length;
+                    break;
+            }
+        }
     }
 
     void Awake()
@@ -72,8 +89,7 @@ public class PlayerMover : MonoBehaviour
 
         speed = 0;
 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-
+        yield return new WaitForSeconds(attackTime/2);
 
         speed = tempSpeed;
 
