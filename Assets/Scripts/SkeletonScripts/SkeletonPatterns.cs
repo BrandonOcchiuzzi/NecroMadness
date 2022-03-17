@@ -30,6 +30,9 @@ public class SkeletonPatterns : MonoBehaviour
 
     bool currentlyColliding = false;
 
+    public int health = 3;
+
+    float deathTime;
 
     Seeker seeker;
 
@@ -38,7 +41,7 @@ public class SkeletonPatterns : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rbody = GetComponent<Rigidbody2D>();
-
+        UpdateAnimClipTimes();
     }
 
     void UpdatePath()
@@ -61,7 +64,10 @@ public class SkeletonPatterns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        detectPlayer();
+        if (health > 0)
+        {
+            detectPlayer();
+        }
     }
 
     /*     void thisShitDoesntWork(){
@@ -149,6 +155,49 @@ public class SkeletonPatterns : MonoBehaviour
 
     }
 
+    void attack()
+    {
+
+    }
+
+    public void getHurt()
+    {
+        health--;
+        if (health == 0)
+        {
+            Debug.Log("i'm death :( ");
+            StartCoroutine(Defeated());
+        }
+    }
+
+    IEnumerator Defeated()
+    {
+        axis = 0;
+        animator.SetInteger("Axis", axis);
+        animator.SetBool("IsDying", true);
+        animator.SetFloat("Speed", 0);
+        yield return new WaitForSeconds(deathTime);
+
+        Destroy(this.gameObject);
+    }
+
+    public void UpdateAnimClipTimes()
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach (AnimationClip clip in clips)
+        {
+            Debug.Log("clip name" + clip.length);
+
+            switch (clip.name)
+            {
+
+                case "skeleton_death":
+                    Debug.Log("deathtime" + clip.length);
+                    deathTime = clip.length;
+                    break;
+            }
+        }
+    }
     void detectPlayer()
     {
         Transform playerTransform = player.GetComponent<Transform>();
@@ -240,8 +289,6 @@ public class SkeletonPatterns : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("other name" + other.gameObject.name);
-
         if (other.gameObject.name == "Solid Objects")
         {
             currentlyColliding = true;

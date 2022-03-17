@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -12,8 +13,8 @@ TagManager:
   - Water
   - UI
   - Obstacle
-  - 
-  - 
+  - Enemies
+  - Player
   - 
   - 
   - 
@@ -61,4 +62,7 @@ TagManager:
     locked: 0
   - name: TopRoof
     uniqueID: 3734946055
+    locked: 0
+  - name: Enemies
+    uniqueID: 2092103295
     locked: 0
