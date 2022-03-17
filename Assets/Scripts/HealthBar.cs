@@ -10,10 +10,6 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient; // gradient adds a component to the healthbar that allows colour changes based on hp values
     public Image fill; //references the fill component of the healthbar
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health; //starts the slider component at set maxHealth

@@ -41,6 +41,9 @@ TextureImporter:
   - first:
       213: 5832253642868715984
     second: HealthBarHeart
+  - first:
+      213: -6743840644159589658
+    second: heart_healthbar
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -444,7 +447,7 @@ TextureImporter:
         width: 120
         height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -452,6 +455,27 @@ TextureImporter:
       bones: []
       spriteID: 0d1fa2f99c350f050800000000000000
       internalID: 5832253642868715984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heart_healthbar
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 991
+        width: 119
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2b60f1aa01962a0800000000000000
+      internalID: -6743840644159589658
       vertices: []
       indices: 
       edges: []
