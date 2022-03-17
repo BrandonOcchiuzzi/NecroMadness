@@ -9,13 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: c429f608bacb77c49ba2fa3f29a4fcee
   - enabled: 1
-    path: Assets/Scenes/Village.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/NewVillage.unity
+    guid: 8a10c47388ee3264b9ec0ab038f8bf4e
   - enabled: 1
     path: Assets/Scenes/Forest.unity
     guid: 428e52a37c0ac484a9acae74114a9fec
   - enabled: 1
     path: Assets/Scenes/Catacomb.unity
     guid: a55c9c1318e3597458a55e560ff50b13
+  - enabled: 0
+    path: Assets/Scenes/Village.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8760bb3eea8337e48815cbf120307ea2, type: 2}
