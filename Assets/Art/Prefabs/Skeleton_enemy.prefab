@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  player: {fileID: 0}
+  player: {fileID: 4962118710337190431, guid: d03d3676345726a4abb174def09f3824, type: 3}
   animator: {fileID: 6470983732313247489}
   axis: 0
   lookingLeft: 0
