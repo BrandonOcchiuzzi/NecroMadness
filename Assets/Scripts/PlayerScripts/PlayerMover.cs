@@ -15,7 +15,13 @@ public class PlayerMover : MonoBehaviour
 
     float horizontalMove = 0f;
 
-    bool attack = false;
+    public bool attack = false;
+
+    public int axis = 0;
+
+    public bool lookingLeft = false;
+    private bool m_Pressed;
+
 
     Vector2 moveDirection = Vector2.zero;
 
@@ -35,6 +41,11 @@ public class PlayerMover : MonoBehaviour
     void OnEnable()
     {
         playerController.Enable();
+
+        playerController.Default.Attack.performed += Attack;
+
+        playerController.Default.Attack.canceled += AttackStopped;
+
     }
 
     void OnDisable()
@@ -47,53 +58,73 @@ public class PlayerMover : MonoBehaviour
         moveDirection = playerController.Default.Move.ReadValue<Vector2>();
     }
 
+
+    private void Attack(InputAction.CallbackContext context)
+    {
+        animator.SetBool("isAttacking", true);
+        StartCoroutine(StopAnim());
+    }
+
+    IEnumerator StopAnim()
+    {
+        float tempSpeed = speed;
+
+
+        speed = 0;
+
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+
+        speed = tempSpeed;
+
+        animator.SetBool("isAttacking", false);
+    }
+
+    private void AttackStopped(InputAction.CallbackContext context)
+    {
+
+    }
+
     void FixedUpdate()
     {
+
         if (moveDirection.x == 0 || moveDirection.y == 0)
         {
-            Debug.Log("FIRST IF");
             rbody.velocity = new Vector2(moveDirection.x * speed * Time.deltaTime, moveDirection.y * speed * Time.deltaTime);
             lastVelocity = rbody.velocity;
         }
         else
         {
-            Debug.Log("ELSE STATEMENT");
             rbody.velocity = lastVelocity;
         }
 
         if (rbody.velocity.x > 0)
         {
-            Debug.Log("velocity x" + rbody.velocity.x);
-            animator.SetInteger("Axis", 1);
-            Debug.Log("animator " + animator.GetInteger("Axis"));
-
-            GetComponent<SpriteRenderer>().flipX = false;
+            axis = 1;
+            animator.SetInteger("Axis", axis);
+            lookingLeft = false;
+            GetComponent<SpriteRenderer>().flipX = lookingLeft;
         }
         else if (rbody.velocity.x < 0)
         {
-            Debug.Log("velocity x" + rbody.velocity.x);
-            animator.SetInteger("Axis", 1);
-            Debug.Log("animator " + animator.GetInteger("Axis"));
-
-            GetComponent<SpriteRenderer>().flipX = true;
+            axis = 1;
+            animator.SetInteger("Axis", axis);
+            lookingLeft = true;
+            GetComponent<SpriteRenderer>().flipX = lookingLeft;
         }
 
         else if (rbody.velocity.y > 0)
         {
-            Debug.Log("velocity y" + rbody.velocity.y);
-            animator.SetInteger("Axis", 2);
-            Debug.Log("animator " + animator.GetInteger("Axis"));
-
-            GetComponent<SpriteRenderer>().flipX = true;
+            axis = 2;
+            animator.SetInteger("Axis", axis);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
 
         else if (rbody.velocity.y < 0)
         {
-            Debug.Log("velocity y" + rbody.velocity.y);
-            animator.SetInteger("Axis", 0);
-            Debug.Log("animator " + animator.GetInteger("Axis"));
-
-            GetComponent<SpriteRenderer>().flipX = true;
+            axis = 0;
+            animator.SetInteger("Axis", axis);
+            GetComponent<SpriteRenderer>().flipX = false;
         }
 
 
