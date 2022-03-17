@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Village");
+        SceneManager.LoadScene("NewVillage");
     }
 
     public void QuitGame()
