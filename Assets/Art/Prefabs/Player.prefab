@@ -227,7 +227,9 @@ MonoBehaviour:
   attack: 0
   axis: 0
   lookingLeft: 0
-  health: 3
+  maxHealth: 10
+  currentHealth: 0
+  healthBar: {fileID: 0}
   attackTime: 0
 --- !u!95 &4962118710337190429
 Animator:

@@ -44,6 +44,12 @@ TextureImporter:
   - first:
       213: -6743840644159589658
     second: heart_healthbar
+  - first:
+      213: -4831306288599821542
+    second: PauseButton0
+  - first:
+      213: -6420472634855510285
+    second: PauseButton
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -468,7 +474,7 @@ TextureImporter:
         width: 119
         height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -476,6 +482,48 @@ TextureImporter:
       bones: []
       spriteID: 6e2b60f1aa01962a0800000000000000
       internalID: -6743840644159589658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseButton0
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 5
+        width: 119
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1395e22780c3fcb0800000000000000
+      internalID: -4831306288599821542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseButton
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 5
+        width: 119
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe225dd726e5e6a0800000000000000
+      internalID: -6420472634855510285
       vertices: []
       indices: 
       edges: []

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
+  - Weapon
+  - Heart
   layers:
   - Default
   - TransparentFX
@@ -59,6 +61,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3881459631
+    locked: 0
+  - name: Weapon
+    uniqueID: 3715270887
     locked: 0
   - name: TopRoof
     uniqueID: 3734946055

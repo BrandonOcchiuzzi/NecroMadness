@@ -105,6 +105,23 @@ public class PlayerMover : MonoBehaviour
         }
         //*************************************************************
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Heart")
+        {
+            if (currentHealth < 5)
+            {
+                currentHealth += 5;
+                healthBar.SetHealth(currentHealth);
+            }
+            else
+            {
+                currentHealth = maxHealth;
+                healthBar.SetHealth(currentHealth);
+            }
+            Destroy(other.gameObject);
+        }
+    }
 
     void TakeDamage(int damage) //allows taking of damage and passes it to the health bar
     {
@@ -112,6 +129,7 @@ public class PlayerMover : MonoBehaviour
         healthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
     }
 
+    
 
     private void Attack(InputAction.CallbackContext context)
     {
