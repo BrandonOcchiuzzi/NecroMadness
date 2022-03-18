@@ -129,17 +129,23 @@ public class PlayerMover : MonoBehaviour
         healthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
     }
 
-    
+
 
     private void Attack(InputAction.CallbackContext context)
     {
-        animator.SetBool("isAttacking", true);
-        StartCoroutine(StopAnim());
+        if (!attack)
+        {
+            attack = true;
+            animator.SetBool("isAttacking", true);
+            StartCoroutine(StopAnim());
+        }
+
     }
 
     IEnumerator StopAnim()
     {
         float tempSpeed = speed;
+
         speed = 0;
 
         Vector2 attackRange = new Vector2(attackRangeX, attackRangeY);
@@ -193,7 +199,9 @@ public class PlayerMover : MonoBehaviour
 
         speed = tempSpeed;
 
+
         animator.SetBool("isAttacking", false);
+        attack = false;
     }
 
     private void AttackStopped(InputAction.CallbackContext context)
@@ -277,7 +285,7 @@ public class PlayerMover : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-
+        Debug.Log("velocity" + rbody.velocity);
         animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x + rbody.velocity.y));
 
     }
