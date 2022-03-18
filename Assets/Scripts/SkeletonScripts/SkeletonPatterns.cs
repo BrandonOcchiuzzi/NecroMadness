@@ -8,6 +8,8 @@ public class SkeletonPatterns : MonoBehaviour
 
     public float speed;
 
+    public float tempSpeed;
+
     public GameObject player;
 
     private Rigidbody2D rbody;
@@ -33,6 +35,12 @@ public class SkeletonPatterns : MonoBehaviour
     public int health = 3;
 
     float deathTime;
+
+    float skeletonFrontAttack;
+
+    bool isAttacking = false;
+
+    bool isDying = false;
 
     Seeker seeker;
 
@@ -172,13 +180,29 @@ public class SkeletonPatterns : MonoBehaviour
 
     IEnumerator Defeated()
     {
+        isDying = true;
         axis = 0;
         animator.SetInteger("Axis", axis);
+        animator.SetBool("IsAttacking", false);
         animator.SetBool("IsDying", true);
         animator.SetFloat("Speed", 0);
         yield return new WaitForSeconds(deathTime);
 
         Destroy(this.gameObject);
+    }
+
+    IEnumerator Attack()
+    {
+        isAttacking = true;
+        if (speed != 0)
+        {
+            tempSpeed = speed;
+        }
+        speed = 0;
+        animator.SetBool("IsAttacking", true);
+        animator.SetFloat("Speed", speed);
+        yield return new WaitForSeconds(skeletonFrontAttack);
+        animator.SetFloat("Speed", speed);
     }
 
     public void UpdateAnimClipTimes()
@@ -195,6 +219,11 @@ public class SkeletonPatterns : MonoBehaviour
                     Debug.Log("deathtime" + clip.length);
                     deathTime = clip.length;
                     break;
+
+                case "skeleton_front_attack":
+                    Debug.Log("skeleton_front_attack" + clip.length);
+                    skeletonFrontAttack = clip.length;
+                    break;
             }
         }
     }
@@ -204,7 +233,7 @@ public class SkeletonPatterns : MonoBehaviour
 
         Vector3 playerPosition = playerTransform.position;
 
-        float dist = Vector3.Distance(playerPosition, rbody.position);
+        float dist = Vector3.Distance(playerPosition, transform.position);
 
         float playerAxis = player.GetComponent<PlayerMover>().axis;
 
@@ -214,8 +243,9 @@ public class SkeletonPatterns : MonoBehaviour
 
         Vector3 directionToTarget = playerPosition - transform.position;
 
-        if (dist < 0.7)
+        if (dist < 0.7 && !isAttacking)
         {
+            Debug.Log("detect");
 
             if (Mathf.Abs(directionToTarget.x) < Mathf.Abs(directionToTarget.y) && Mathf.Abs(directionToTarget.x) > Mathf.Epsilon)
             {
@@ -286,20 +316,36 @@ public class SkeletonPatterns : MonoBehaviour
 
     }
 
-
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (other.gameObject.name == "Solid Objects")
+        if (collision.gameObject.name == "Player" && !isDying)
+        {
+            Debug.Log("ON ATTACK");
+            StartCoroutine(Attack());
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Solid Objects")
         {
             currentlyColliding = true;
         }
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        if (other.gameObject.name == "Solid Objects")
+        if (collision.gameObject.name == "Solid Objects")
         {
             currentlyColliding = false;
+        }
+
+        if (collision.gameObject.name == "Player")
+        {
+            speed = tempSpeed;
+            isAttacking = false;
+            animator.SetBool("IsAttacking", false);
+
         }
     }
 }

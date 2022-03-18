@@ -285,7 +285,6 @@ public class PlayerMover : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        Debug.Log("velocity" + rbody.velocity);
         animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x + rbody.velocity.y));
 
     }
