@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : MonoBehaviour
+public class Chest : Collectable
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Sprite emptyChest;
+    public int GoldAmount = 10;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+   protected override void OnCollect()
+   {
+       if (!collected)
+       {
+           collected = true;
+            GetComponent<SpriteRenderer>().sprite = emptyChest;
+            Debug.Log("Received " + GoldAmount + " Gold!" );
+       }       
+   }
 }
