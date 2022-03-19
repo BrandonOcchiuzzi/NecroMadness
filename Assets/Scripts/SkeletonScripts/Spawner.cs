@@ -16,26 +16,7 @@ public class Spawner : MonoBehaviour
 
     private void SpawnSkeleton()
     {
-        /*
-        Vector3 centre = this.transform.position;
         
-        for (int i = 0; i < this.spawnNumber; i++)
-        {
-            Vector3 position = RandomCircle(centre, 1.0f);
-            Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, centre - position);
-            Instantiate(skeleton, position, rotation);
-        }
-
-        Vector3 RandomCircle (Vector3 centre, float radius)
-        {
-            float ang = Random.value * 360;
-            Vector3 position;
-            position.x = centre.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
-            position.y = centre.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
-            position.z = centre.z;
-            return position;
-        }
-        */
         for (int i = 2; i < this.maxSpawnNumber; i++)
         {
             //creates a circle with a distance of 0.25 units around the crystal in the middle
