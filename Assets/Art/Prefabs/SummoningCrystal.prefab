@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 9011728326885508579}
   - component: {fileID: 9011728326885508580}
   - component: {fileID: 79106597401436264}
-  m_Layer: 0
+  - component: {fileID: 3246410230185846361}
+  m_Layer: 8
   m_Name: SummoningCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,3 +120,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00034602484, y: 0.00034569702}
   m_Size: {x: 0.14912447, y: 0.20031828}
   m_Direction: 0
+--- !u!114 &3246410230185846361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9011728326885508581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429412bd0e872534396a61aa6957d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeleton: {fileID: 0}
+  spawnRate: 10
+  spawnDistance: 0.25
+  maxSpawnNumber: 3
