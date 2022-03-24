@@ -25,6 +25,8 @@ public class PlayerMover : MonoBehaviour
 
     public LayerMask enemyLayers;
 
+    //To change weaponslot position as per player movement
+    public Transform weaponSlot;
 
     [SerializeField]
     private float speed = 5.0f;
@@ -157,7 +159,7 @@ public class PlayerMover : MonoBehaviour
         {
             case 0:
                 Debug.Log("front");
-
+                
                 hitEnemies = Physics2D.OverlapBoxAll(attackFront.position, attackRange, enemyLayers);
                 break;
 
@@ -173,14 +175,14 @@ public class PlayerMover : MonoBehaviour
                 else
                 {
                     Debug.Log("right");
-
+                    
                     hitEnemies = Physics2D.OverlapBoxAll(attackRight.position, attackRange, enemyLayers);
                 }
                 break;
 
             case 2:
                 Debug.Log("back");
-
+                
                 hitEnemies = Physics2D.OverlapBoxAll(attackBack.position, attackRange, enemyLayers);
 
                 break;
@@ -260,8 +262,10 @@ public class PlayerMover : MonoBehaviour
         {
             axis = 1;
             animator.SetInteger("Axis", axis);
-            lookingLeft = false;
+            lookingLeft = false;            
             GetComponent<SpriteRenderer>().flipX = lookingLeft;
+            weaponSlot.transform.localPosition = new Vector3(0, -0.035f, 0);
+            weaponSlot.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
         else if (rbody.velocity.x < 0)
         {
@@ -269,6 +273,8 @@ public class PlayerMover : MonoBehaviour
             animator.SetInteger("Axis", axis);
             lookingLeft = true;
             GetComponent<SpriteRenderer>().flipX = lookingLeft;
+            weaponSlot.transform.localPosition = new Vector3(-0.05f, -0.035f, 0);
+            weaponSlot.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         else if (rbody.velocity.y > 0)
@@ -276,6 +282,8 @@ public class PlayerMover : MonoBehaviour
             axis = 2;
             animator.SetInteger("Axis", axis);
             GetComponent<SpriteRenderer>().flipX = false;
+            weaponSlot.transform.localPosition = new Vector3(0.05f, -0.035f, 0);
+            weaponSlot.transform.localRotation = Quaternion.Euler(0, 70, 0);
         }
 
         else if (rbody.velocity.y < 0)
@@ -283,6 +291,8 @@ public class PlayerMover : MonoBehaviour
             axis = 0;
             animator.SetInteger("Axis", axis);
             GetComponent<SpriteRenderer>().flipX = false;
+            weaponSlot.transform.localPosition = new Vector3(-0.05f, -0.035f, 0);
+            weaponSlot.transform.localRotation = Quaternion.Euler(0, 70, 0);
         }
 
         animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x + rbody.velocity.y));
