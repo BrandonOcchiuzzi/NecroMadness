@@ -59,6 +59,9 @@ TagManager:
   - name: Decoration
     uniqueID: 41803531
     locked: 0
+  - name: WeaponBehind
+    uniqueID: 813540007
+    locked: 0
   - name: Player
     uniqueID: 3881459631
     locked: 0

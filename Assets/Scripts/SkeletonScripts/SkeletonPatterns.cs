@@ -10,6 +10,8 @@ public class SkeletonPatterns : MonoBehaviour
 
     public float tempSpeed;
 
+    public float impulse = 5.0f;
+
     public GameObject player;
 
     private Rigidbody2D rbody;
@@ -72,6 +74,7 @@ public class SkeletonPatterns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (health > 0)
         {
             detectPlayer();
@@ -170,6 +173,9 @@ public class SkeletonPatterns : MonoBehaviour
 
     public void getHurt()
     {
+        animator.SetTrigger("TakeDamage");
+        Vector3 direction = (transform.position - player.GetComponent<Transform>().position).normalized;
+        rbody.AddForce(direction * impulse);
         health--;
         if (health == 0)
         {
