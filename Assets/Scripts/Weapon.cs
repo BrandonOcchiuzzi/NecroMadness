@@ -67,7 +67,7 @@ public class Weapon : MonoBehaviour
         {
             animator.SetBool("Picked", true);
 
-            animator.SetFloat("Speed", Mathf.Abs(rbody.velocity.x + rbody.velocity.y));
+            animator.SetFloat("Speed", Mathf.Abs(player.velocityX + rbody.velocity.y));
 
             /*if (rbody.velocity.x == 0 || rbody.velocity.y == 0)
             {

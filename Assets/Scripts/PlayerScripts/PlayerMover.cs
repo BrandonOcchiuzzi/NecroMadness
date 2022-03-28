@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMover : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerMover : MonoBehaviour
 
     public float attackRangeY = 0.1f;
 
+    public static PlayerMover instance;
 
     public Transform attackFront;
 
@@ -51,6 +53,8 @@ public class PlayerMover : MonoBehaviour
     Vector2 lastVelocity = Vector2.zero;
     private PlayerController playerController;
 
+    public float velocityX = 0;
+
     public float attackTime;
 
     private void Start()
@@ -79,6 +83,20 @@ public class PlayerMover : MonoBehaviour
     void Awake()
     {
         playerController = new PlayerController();
+
+        if (GameManager.instance != null) 
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        string sceneName = SceneManager.GetActiveScene().name;
+        if (sceneName == "Forest" || sceneName == "Catacomb")
+        {
+            this.gameObject.transform.position = Vector2.zero;
+        }
     }
 
     void OnEnable()
@@ -258,7 +276,7 @@ public class PlayerMover : MonoBehaviour
         {
             rbody.velocity = lastVelocity;
         }
-
+        velocityX = rbody.velocity.x;
         if (rbody.velocity.x > 0)
         {
             axis = 1;

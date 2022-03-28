@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CameraMotor : MonoBehaviour
 {
-    public Transform lookAt;
+    public GameObject lookAt;
     public float boundX = 0.15f;
     public float boundY = 0.05f;
+
+    private void Start()
+    {
+        lookAt = GameObject.FindGameObjectWithTag("Player");
+    }
 
     //LateUpdate is being called after Update and after FixedUpdate
     private void LateUpdate()
@@ -14,10 +19,10 @@ public class CameraMotor : MonoBehaviour
         Vector3 delta = Vector3.zero;
 
         // This is to check if we're inside the bounds on the X Axis
-        float deltaX = lookAt.position.x - transform.position.x;
+        float deltaX = lookAt.transform.position.x - transform.position.x;
         if (deltaX > boundX || deltaX < -boundX)
         {
-            if (transform.position.x < lookAt.position.x)
+            if (transform.position.x < lookAt.transform.position.x)
             {
                 delta.x = deltaX - boundX;
             }
@@ -29,10 +34,10 @@ public class CameraMotor : MonoBehaviour
         }
 
         // This is to check if we're inside the bounds on the Y Axis
-        float deltaY = lookAt.position.y - transform.position.y;
+        float deltaY = lookAt.transform.position.y - transform.position.y;
         if (deltaY > boundY || deltaY < -boundY)
         {
-            if (transform.position.y < lookAt.position.y)
+            if (transform.position.y < lookAt.transform.position.y)
             {
                 delta.y = deltaY - boundY;
             }

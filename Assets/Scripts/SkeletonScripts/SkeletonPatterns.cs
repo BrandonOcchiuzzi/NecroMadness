@@ -58,7 +58,7 @@ public class SkeletonPatterns : MonoBehaviour
     {
         if (seeker.IsDone())
         {
-            seeker.StartPath(rbody.position, player.transform.position, OnPathComplete);
+            seeker.StartPath(rbody.position, GameObject.FindWithTag("Player").transform.position, OnPathComplete);
         }
     }
 
@@ -174,7 +174,7 @@ public class SkeletonPatterns : MonoBehaviour
     public void getHurt()
     {
         animator.SetTrigger("TakeDamage");
-        Vector3 direction = (transform.position - player.GetComponent<Transform>().position).normalized;
+        Vector3 direction = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
         rbody.AddForce(direction * impulse);
         health--;
         if (health == 0)
@@ -235,7 +235,7 @@ public class SkeletonPatterns : MonoBehaviour
     }
     void detectPlayer()
     {
-        Transform playerTransform = player.GetComponent<Transform>();
+        Transform playerTransform = GameObject.FindWithTag("Player").transform;
 
         Vector3 playerPosition = playerTransform.position;
 
