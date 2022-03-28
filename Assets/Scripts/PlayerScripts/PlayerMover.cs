@@ -187,6 +187,7 @@ public class PlayerMover : MonoBehaviour
 
                 break;
         }
+        
 
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -265,7 +266,7 @@ public class PlayerMover : MonoBehaviour
             lookingLeft = false;            
             GetComponent<SpriteRenderer>().flipX = lookingLeft;
             weaponSlot.transform.localPosition = new Vector3(0, -0.035f, 0);
-            weaponSlot.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            weaponSlot.transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else if (rbody.velocity.x < 0)
         {
@@ -273,7 +274,7 @@ public class PlayerMover : MonoBehaviour
             animator.SetInteger("Axis", axis);
             lookingLeft = true;
             GetComponent<SpriteRenderer>().flipX = lookingLeft;
-            weaponSlot.transform.localPosition = new Vector3(-0.05f, -0.035f, 0);
+            weaponSlot.transform.localPosition = new Vector3(0f, -0.035f, 0);
             weaponSlot.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
