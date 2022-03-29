@@ -30,6 +30,10 @@ public class Collidable : MonoBehaviour
     }
     protected virtual void OnCollide(Collider2D coll)
     {
-        Debug.Log("OnCollide was not implemented in " + this.name);
+        if(coll.gameObject.name == "Player")
+        {
+            Debug.Log("A gate with a golden keyhole bars your way.");
+        }
+        //Debug.Log("OnCollide was not implemented in " + this.name);
     }
 }
