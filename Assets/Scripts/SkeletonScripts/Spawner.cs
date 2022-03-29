@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour
     public float spawnDistance = 0.25f;
     public int maxSpawnNumber = 3;
     
-    private void Start()
+    public void Start()
     {
         InvokeRepeating(nameof(SpawnSkeleton), this.spawnRate, this.spawnRate);
     }
