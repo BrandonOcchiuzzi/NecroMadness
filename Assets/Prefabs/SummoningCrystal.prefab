@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 9015417080186651436}
   - component: {fileID: 9015417080186651435}
   - component: {fileID: 9015417080186651434}
-  - component: {fileID: 9015417080186651433}
   - component: {fileID: 9015417080186651439}
+  - component: {fileID: 9015417080186651433}
   - component: {fileID: 9015417080186651438}
+  - component: {fileID: 5066912042356863496}
   m_Layer: 7
   m_Name: SummoningCrystal
   m_TagString: Untagged
@@ -122,22 +123,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00034602484, y: 0.00034569702}
   m_Size: {x: 0.14912447, y: 0.20031828}
   m_Direction: 0
---- !u!114 &9015417080186651433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015417080186651432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 429412bd0e872534396a61aa6957d998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeleton: {fileID: 6470983732313247500, guid: 23b1361b28f1dfd4abf03823b35417e2, type: 3}
-  spawnRate: 7
-  spawnDistance: 0.25
-  maxSpawnNumber: 3
 --- !u!61 &9015417080186651439
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,6 +149,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &9015417080186651433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015417080186651432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429412bd0e872534396a61aa6957d998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeleton: {fileID: 6470983732313247500, guid: 23b1361b28f1dfd4abf03823b35417e2, type: 3}
+  spawnRate: 7
+  spawnDistance: 0.25
+  maxSpawnNumber: 3
 --- !u!114 &9015417080186651438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,3 +177,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e6e8dc47228bd74988b8a7272d976c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5066912042356863496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015417080186651432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0163c7727494d544781f127518937d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9015417080186651435}
+  health: 5
