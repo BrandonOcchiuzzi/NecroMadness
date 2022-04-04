@@ -209,10 +209,12 @@ public class PlayerMover : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
+            
             if (enemy.tag == "enemy")
             {
-                enemy.GetComponent<SkeletonPatterns>().getHurt();
+                enemy.GetComponent<SkeletonPatterns>().getHurt();                
             }
+            
         }
 
 

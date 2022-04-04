@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9015417080186651433}
   - component: {fileID: 9015417080186651438}
   - component: {fileID: 5066912042356863496}
+  - component: {fileID: -2712964632593843643}
   m_Layer: 7
   m_Name: SummoningCrystal
   m_TagString: Untagged
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -413507665
-  m_SortingLayer: 7
+  m_SortingLayerID: 2092103295
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: -2968038321702037257, guid: a2e035baf8d425449b2248a557bdce10, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +102,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ef598bb3110bbe644945412c93672fa8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -162,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeleton: {fileID: 6470983732313247500, guid: 23b1361b28f1dfd4abf03823b35417e2, type: 3}
-  spawnRate: 7
+  spawnRate: 5
   spawnDistance: 0.25
   maxSpawnNumber: 3
 --- !u!114 &9015417080186651438
@@ -191,3 +192,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 9015417080186651435}
   health: 5
+--- !u!50 &-2712964632593843643
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015417080186651432}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7

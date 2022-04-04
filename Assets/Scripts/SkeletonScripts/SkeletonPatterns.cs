@@ -5,6 +5,22 @@ using Pathfinding;
 
 public class SkeletonPatterns : MonoBehaviour
 {
+    //References
+    //public EnemyHealthBar enemyHealthBar;
+    public GameObject player;
+    private Rigidbody2D rbody;
+    public Animator animator;
+    public AIPath aiPath;
+    Seeker seeker;
+    Path path;
+    
+    //Health, damage, death
+    public int health = 3;
+    //public int currentHealth;
+    float deathTime;
+    bool isDying = false;
+
+
 
     public float speed;
 
@@ -12,19 +28,10 @@ public class SkeletonPatterns : MonoBehaviour
 
     public float impulse = 5.0f;
 
-    public GameObject player;
-
-    private Rigidbody2D rbody;
-
-    public Animator animator;
 
     public int axis = 0;
 
     public bool lookingLeft = false;
-
-    public AIPath aiPath;
-
-    Path path;
 
     int currentWaypoint = 0;
 
@@ -34,17 +41,12 @@ public class SkeletonPatterns : MonoBehaviour
 
     bool currentlyColliding = false;
 
-    public int health = 3;
-
-    float deathTime;
 
     float skeletonFrontAttack;
 
     bool isAttacking = false;
 
-    bool isDying = false;
 
-    Seeker seeker;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,10 @@ public class SkeletonPatterns : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rbody = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
+
+        //currentHealth = health; //sets hp to maxHealth upon load
+        //enemyHealthBar.SetMaxHealth(health); //SetMaxHealth Method in healthbar script
+
     }
 
     void UpdatePath()
@@ -176,7 +182,11 @@ public class SkeletonPatterns : MonoBehaviour
         animator.SetTrigger("TakeDamage");
         Vector3 direction = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
         rbody.AddForce(direction * impulse);
+
         health--;
+        //currentHealth --; //sets current health based on dmg taken
+        //enemyHealthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
+        
         if (health == 0)
         {
             Debug.Log("i'm dead :( ");
