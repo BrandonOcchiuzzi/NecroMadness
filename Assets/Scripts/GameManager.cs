@@ -29,9 +29,17 @@ public class GameManager : MonoBehaviour
     //References
     public PlayerMover player;
 
+    public FloatTextManager floatTextManager;
+
     //Logic
     public int pesos;
     public int experience;
+
+
+    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
+    {
+        floatTextManager.Show(msg, fontSize, color, position, motion, duration);
+    }
 
     // Update is called once per frame
     void Update()

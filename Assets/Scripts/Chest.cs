@@ -14,7 +14,7 @@ public class Chest : Collectable
        {
            collected = true;
             GetComponent<SpriteRenderer>().sprite = emptyChest;
-            Debug.Log("Received " + GoldAmount + " Gold!" );
+            GameManager.instance.ShowText("+" + GoldAmount + " Gold!" ,30 , Color.yellow, transform.position, Vector3.up * 25, 1.5f );
        }       
    }
 }
