@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -2712964632593843643}
   m_Layer: 7
   m_Name: SummoningCrystal
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   spawnRate: 5
   spawnDistance: 0.25
   maxSpawnNumber: 3
+  isDying: 0
 --- !u!114 &9015417080186651438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 9015417080186651435}
+  rBody: {fileID: -2712964632593843643}
   health: 5
+  axis: 0
 --- !u!50 &-2712964632593843643
 Rigidbody2D:
   serializedVersion: 4

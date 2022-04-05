@@ -84,7 +84,7 @@ public class PlayerMover : MonoBehaviour
     {
         playerController = new PlayerController();
 
-        if (GameManager.instance != null) 
+        if (GameManager.instance != null)
         {
             Destroy(gameObject);
             return;
@@ -177,7 +177,7 @@ public class PlayerMover : MonoBehaviour
         {
             case 0:
                 Debug.Log("front");
-                
+
                 hitEnemies = Physics2D.OverlapBoxAll(attackFront.position, attackRange, enemyLayers);
                 break;
 
@@ -193,28 +193,36 @@ public class PlayerMover : MonoBehaviour
                 else
                 {
                     Debug.Log("right");
-                    
+
                     hitEnemies = Physics2D.OverlapBoxAll(attackRight.position, attackRange, enemyLayers);
                 }
                 break;
 
             case 2:
                 Debug.Log("back");
-                
+
                 hitEnemies = Physics2D.OverlapBoxAll(attackBack.position, attackRange, enemyLayers);
 
                 break;
         }
-        
+
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            
+
             if (enemy.tag == "enemy")
             {
-                enemy.GetComponent<SkeletonPatterns>().getHurt();                
+
+                if (enemy.name.Contains("Skeleton"))
+                {
+                enemy.GetComponent<SkeletonPatterns>().getHurt();
+                }
+                if (enemy.name.Contains("Crystal"))
+                {
+                enemy.GetComponent<SummoningCrystals>().getHurt();
+                }
             }
-            
+
         }
 
 
@@ -283,7 +291,7 @@ public class PlayerMover : MonoBehaviour
         {
             axis = 1;
             animator.SetInteger("Axis", axis);
-            lookingLeft = false;            
+            lookingLeft = false;
             GetComponent<SpriteRenderer>().flipX = lookingLeft;
             weaponSlot.transform.localPosition = new Vector3(0, -0.035f, 0);
             weaponSlot.transform.localRotation = Quaternion.Euler(0, 180, 0);

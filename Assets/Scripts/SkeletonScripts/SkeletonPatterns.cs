@@ -13,7 +13,7 @@ public class SkeletonPatterns : MonoBehaviour
     public AIPath aiPath;
     Seeker seeker;
     Path path;
-    
+
     //Health, damage, death
     public int health = 3;
     //public int currentHealth;
@@ -46,6 +46,7 @@ public class SkeletonPatterns : MonoBehaviour
 
     bool isAttacking = false;
 
+    bool isGettingHurt = false;
 
 
     // Start is called before the first frame update
@@ -80,7 +81,7 @@ public class SkeletonPatterns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (health > 0)
         {
             detectPlayer();
@@ -179,28 +180,39 @@ public class SkeletonPatterns : MonoBehaviour
 
     public void getHurt()
     {
-        animator.SetTrigger("TakeDamage");
-        Vector3 direction = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
-        rbody.AddForce(direction * impulse);
 
-        health--;
-        //currentHealth --; //sets current health based on dmg taken
-        //enemyHealthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
-        
-        if (health == 0)
+        if (!isGettingHurt && !isDying)
         {
-            Debug.Log("i'm dead :( ");
-            StartCoroutine(Defeated());
+            isGettingHurt = true;
+            Vector3 direction = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
+            rbody.AddForce(direction * impulse);
+
+            health--;
+            //currentHealth --; //sets current health based on dmg taken
+            //enemyHealthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
+
+            if (health == 0)
+            {
+                isDying = true;
+                Debug.Log("i'm dead :( ");
+                StartCoroutine(Defeated());
+            }
+            else
+            {
+                isGettingHurt = false;
+                animator.SetTrigger("TakeDamage");
+
+            }
         }
     }
 
     IEnumerator Defeated()
     {
-        isDying = true;
+        rbody.isKinematic = true;
         axis = 0;
         animator.SetInteger("Axis", axis);
         animator.SetBool("IsAttacking", false);
-        animator.SetBool("IsDying", true);
+        animator.SetTrigger("IsDying");
         animator.SetFloat("Speed", 0);
         yield return new WaitForSeconds(deathTime);
 
