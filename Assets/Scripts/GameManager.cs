@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     public FloatTextManager floatTextManager;
 
     //Logic
-    public int pesos;
-    public int experience;
+    //public int pesos;
+    //public int experience;
 
 
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)

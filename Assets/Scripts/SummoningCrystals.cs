@@ -8,7 +8,7 @@ public class SummoningCrystals : MonoBehaviour
     //References
     public Animator animator;
     private Rigidbody2D rBody;
-
+    
 
     //Health, Damage, Healing, Death
     public int health = 5;
@@ -23,7 +23,6 @@ public class SummoningCrystals : MonoBehaviour
     {
         rBody = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
-
     }
 
     public void UpdateAnimClipTimes()

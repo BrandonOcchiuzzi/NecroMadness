@@ -8,13 +8,19 @@ public class Spawner : MonoBehaviour
     public float spawnRate = 10.0f;
     public float spawnDistance = 0.25f;
     public int maxSpawnNumber = 3;
-
+        
     public bool isDying = false;
 
+    private void Awake()
+    {
+        this.enabled = false;
+    }
     public void Start()
     {
-        InvokeRepeating(nameof(SpawnSkeleton), this.spawnRate, this.spawnRate);
+        InvokeRepeating(nameof(SpawnSkeleton), spawnRate, spawnRate);
+        
     }
+     
 
     private void SpawnSkeleton()
     {
