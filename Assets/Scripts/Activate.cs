@@ -11,6 +11,8 @@ public class Activate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //measures the distance of the player to each crystal via the tag and activates
+        //the spawn script if that distance is less than the set number of units.
         Transform playerTransform = GameObject.FindWithTag("Player").transform;
         distance = Vector3.Distance(playerTransform.transform.position, this.transform.position);
         if (distance < 2)
