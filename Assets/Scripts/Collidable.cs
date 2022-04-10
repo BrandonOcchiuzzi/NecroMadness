@@ -32,7 +32,7 @@ public class Collidable : MonoBehaviour
     {
         if(coll.gameObject.name == "Player")
         {
-            Debug.Log("A gate with a golden keyhole bars your way.");
+            Debug.Log("Boom.");
         }
         //Debug.Log("OnCollide was not implemented in " + this.name);
     }
