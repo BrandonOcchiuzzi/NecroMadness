@@ -5,9 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //Resources
+    //public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    //public List<int> weaponPrices;
+    public List<int> xpTable;
+
+    //References
+    public PlayerMover player;
+    public FloatTextManager floatTextManager;
+
+    //Logic
+    //public int pesos;
+    //public int experience;
+    
     public static GameManager instance;
     private void Awake()
-    {
+    {        
+
         if (GameManager.instance != null) //ensures there is never more than 1 game mananger
         {
             Destroy(gameObject);
@@ -20,20 +35,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); //ensures the game manager stays around scene to scene
     }
 
-    //Resources
-    //public List<Sprite> playerSprites;
-    public List<Sprite> weaponSprites;
-    //public List<int> weaponPrices;
-    public List<int> xpTable;
-
-    //References
-    public PlayerMover player;
-
-    public FloatTextManager floatTextManager;
-
-    //Logic
-    //public int pesos;
-    //public int experience;
 
 
     public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
@@ -61,12 +62,9 @@ public class GameManager : MonoBehaviour
 
     //load game
     public void LoadState(Scene s, LoadSceneMode mode)
-
     {
-
         Debug.Log("LoadState");
-
-
+        
         if (!PlayerPrefs.HasKey("SaveState"))
             return;
 
