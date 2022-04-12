@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    PlayerMover player;
+    /*PlayerMover player;
     public int heal;
+    public HealthBar healthBar;
 
-    private void OnCollision2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.name == "Player")
+        if (coll.tag == "Player")
         {
-            HeartHeal();
+            coll.GetComponent<PlayerMover>().currentHealth += heal;
+            healthBar.SetHealth(coll.GetComponent<PlayerMover>().currentHealth);
+            Destroy(this.gameObject);
         }
     }
     public void HeartHeal()
@@ -22,5 +25,5 @@ public class Heart : MonoBehaviour
         //destroy the heart
         Destroy(this.gameObject);
         
-    }
+    }*/
 }

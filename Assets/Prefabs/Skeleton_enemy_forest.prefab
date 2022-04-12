@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -413507665
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -8683104213890014361, guid: b65964460d5660f4881b95cdf76f7e10, type: 3}
   m_Color: {r: 0.25943398, g: 0.81138265, b: 1, a: 1}
@@ -155,14 +155,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b579509367a0f4082688735ffbf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
-  tempSpeed: 0
   player: {fileID: 4962118710337190431, guid: d03d3676345726a4abb174def09f3824, type: 3}
   animator: {fileID: 6470983732313247489}
-  axis: 0
-  lookingLeft: 0
   aiPath: {fileID: 0}
   health: 3
+  weapon:
+  - {fileID: -8773762717224941923, guid: 468cec820b08b5342b6969614da628f6, type: 3}
+  - {fileID: -6364779298569468375, guid: 40ff5f2fc7b20544b90cf4485b7e813d, type: 3}
+  - {fileID: 5257928799386662375, guid: c716b1800e06bbb4ea3abf7c9bbb2176, type: 3}
+  speed: 0.5
+  tempSpeed: 0
+  impulse: 5
+  axis: 0
+  lookingLeft: 0
 --- !u!114 &6470983732313247501
 MonoBehaviour:
   m_ObjectHideFlags: 0

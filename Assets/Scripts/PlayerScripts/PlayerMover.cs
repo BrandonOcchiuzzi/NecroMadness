@@ -125,7 +125,7 @@ public class PlayerMover : MonoBehaviour
         }
         //*************************************************************
     }
-    /*
+    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Heart")
@@ -143,7 +143,7 @@ public class PlayerMover : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-    */
+    
     void TakeDamage(int damage) //allows taking of damage and passes it to the health bar
     {
         currentHealth -= damage; //sets current health based on dmg taken

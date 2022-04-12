@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5223327594679028345}
   - component: {fileID: 8774340795804370285}
   - component: {fileID: 1109385484480536052}
+  - component: {fileID: -6364779298569468375}
+  - component: {fileID: -4219097120691737323}
   m_Layer: 0
   m_Name: Sword02
   m_TagString: Untagged
@@ -109,3 +111,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &-6364779298569468375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797076042580311150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0a77907f3ff0245ae35caab4ce4a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlot: {fileID: 0}
+  weapon: {fileID: 0}
+  animator: {fileID: 0}
+--- !u!95 &-4219097120691737323
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797076042580311150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3729df0464e51f54495933bd8f6eaff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

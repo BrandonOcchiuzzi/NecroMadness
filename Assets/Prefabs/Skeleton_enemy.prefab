@@ -155,15 +155,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b579509367a0f4082688735ffbf305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4962118710337190431, guid: d03d3676345726a4abb174def09f3824, type: 3}
+  animator: {fileID: 6470983732313247489}
+  aiPath: {fileID: 0}
+  health: 1
+  weapon: {fileID: 0}
   speed: 0.5
   tempSpeed: 0
   impulse: 25
-  player: {fileID: 4962118710337190431, guid: d03d3676345726a4abb174def09f3824, type: 3}
-  animator: {fileID: 6470983732313247489}
   axis: 0
   lookingLeft: 0
-  aiPath: {fileID: 0}
-  health: 1
 --- !u!114 &6470983732313247501
 MonoBehaviour:
   m_ObjectHideFlags: 0
