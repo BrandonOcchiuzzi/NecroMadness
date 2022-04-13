@@ -20,7 +20,9 @@ public class SkeletonPatterns : MonoBehaviour
     float deathTime;
     bool isDying = false;
 
-    public Weapon weapon;   
+    public Weapon weapon;
+
+    public WeaponSlot slot;
 
     public float speed;
 
@@ -73,6 +75,7 @@ public class SkeletonPatterns : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
         weapon = FindObjectOfType<Weapon>();
+        slot = GameObject.Find("WeaponSlot").GetComponent<WeaponSlot>();
         //currentHealth = health; //sets hp to maxHealth upon load
         //enemyHealthBar.SetMaxHealth(health); //SetMaxHealth Method in healthbar script
 
@@ -200,17 +203,17 @@ public class SkeletonPatterns : MonoBehaviour
             Vector3 direction = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
             rbody.AddForce(direction * impulse);
            
-            if (weapon.weaponOnePicked == true && weapon.weaponTwoPicked == false && weapon.weaponThreePicked == false)
+            if (slot.weapons == 1)
                 health--;
-            else if (weapon.weaponTwoPicked == true && weapon.weaponOnePicked == false && weapon.weaponThreePicked == false)
+            else if (slot.weapons == 2)
                 health -= 3;
-            else if (weapon.weaponThreePicked == true && weapon.weaponTwoPicked == false && weapon.weaponOnePicked == false)
+            else if (slot.weapons == 3)
                 health -= 5;
             
             //currentHealth --; //sets current health based on dmg taken
             //enemyHealthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
 
-            if (health == 0)
+            if (health <= 0)
             {
                 isDying = true;
                 animator.SetTrigger("TakeDamage");
