@@ -15,13 +15,13 @@ public class Keys : Collectable
 
     protected override void OnCollect()
     {
-        if (!collected)
+        if (collected == true)
         {
             hasGoldKey = true;
             GameManager.instance.ShowText("Picked up a Gold Key", 25, Color.yellow, transform.position, Vector3.up * 25, 1.5f);
         }
 
-        if (!collected)
+        if (collected == true)
         {
             hasSilverKey = true;
             GameManager.instance.ShowText("Picked up a Silver Key", 25, Color.yellow, transform.position, Vector3.up * 25, 1.5f);

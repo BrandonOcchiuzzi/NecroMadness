@@ -14,10 +14,9 @@ public class GameManager : MonoBehaviour
     //References
     public PlayerMover player;
     public FloatTextManager floatTextManager;
-
+    
     //Logic
-    //public int pesos;
-    //public int experience;
+    
     
     public static GameManager instance;
     private void Awake()
