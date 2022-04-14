@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
 
     private PlayerController playerController;
 
+    public WeaponSlot weapons;
     //Vector2 moveDirection = Vector2.zero;
     //Vector2 lastVelocity = Vector2.zero;
 
@@ -31,6 +32,7 @@ public class Weapon : MonoBehaviour
     {
         bc2D = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        weapons = GameObject.Find("WeaponSlot").GetComponent<WeaponSlot>();
         player = GameObject.Find("Player").GetComponent<PlayerMover>();
         playerController = new PlayerController();
         animator = gameObject.GetComponent<Animator>();
@@ -64,6 +66,7 @@ public class Weapon : MonoBehaviour
                 bc2D.offset = new Vector2(0, 0.1f);
                 weapon.transform.position = weaponSlot.position;
                 weaponOnePicked = true;
+                weapons.GetComponent<WeaponSlot>().weapons = 1;
             }
             else if (this.tag == "Weapon2")
             {
@@ -74,6 +77,7 @@ public class Weapon : MonoBehaviour
                 weapon.transform.position = weaponSlot.position;
                 weaponTwoPicked = true;
                 Destroy(GameObject.FindGameObjectWithTag("Weapon1"));
+                weapons.GetComponent<WeaponSlot>().weapons = 2;
             }
             else if (this.tag == "Weapon3")
             {
@@ -84,6 +88,7 @@ public class Weapon : MonoBehaviour
                 weapon.transform.position = weaponSlot.position;
                 weaponThreePicked = true;
                 Destroy(GameObject.FindGameObjectWithTag("Weapon2"));
+                weapons.GetComponent<WeaponSlot>().weapons = 3;
             }
         }
     }

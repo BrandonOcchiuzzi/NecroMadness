@@ -20,7 +20,9 @@ public class SkeletonPatterns : MonoBehaviour
     float deathTime;
     bool isDying = false;
 
-    public Weapon weapon;   
+    public Weapon weapon;
+
+    public WeaponSlot slot;
 
     public float speed;
 
@@ -48,6 +50,23 @@ public class SkeletonPatterns : MonoBehaviour
 
     bool isGettingHurt = false;
 
+    public float attackRangeX = 0.1f;
+
+    public float attackRangeY = 0.1f;
+
+    public Transform attackFront;
+
+    public Transform attackBack;
+
+    public Transform attackRight;
+
+    public Transform attackLeft;
+
+    public LayerMask playerLayer;
+
+    bool playAnimationOnce = false;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +75,7 @@ public class SkeletonPatterns : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         UpdateAnimClipTimes();
         weapon = FindObjectOfType<Weapon>();
+        slot = GameObject.Find("WeaponSlot").GetComponent<WeaponSlot>();
         //currentHealth = health; //sets hp to maxHealth upon load
         //enemyHealthBar.SetMaxHealth(health); //SetMaxHealth Method in healthbar script
 
@@ -173,10 +193,6 @@ public class SkeletonPatterns : MonoBehaviour
 
     }
 
-    void attack()
-    {
-
-    }
 
     public void getHurt()
     {
@@ -187,17 +203,17 @@ public class SkeletonPatterns : MonoBehaviour
             Vector3 direction = (transform.position - GameObject.FindWithTag("Player").transform.position).normalized;
             rbody.AddForce(direction * impulse);
            
-            if (weapon.weaponOnePicked == true && weapon.weaponTwoPicked == false && weapon.weaponThreePicked == false)
+            if (slot.weapons == 1)
                 health--;
-            else if (weapon.weaponTwoPicked == true && weapon.weaponOnePicked == false && weapon.weaponThreePicked == false)
+            else if (slot.weapons == 2)
                 health -= 3;
-            else if (weapon.weaponThreePicked == true && weapon.weaponTwoPicked == false && weapon.weaponOnePicked == false)
+            else if (slot.weapons == 3)
                 health -= 5;
             
             //currentHealth --; //sets current health based on dmg taken
             //enemyHealthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
 
-            if (health == 0)
+            if (health <= 0)
             {
                 isDying = true;
                 animator.SetTrigger("TakeDamage");
@@ -228,6 +244,57 @@ public class SkeletonPatterns : MonoBehaviour
 
     IEnumerator Attack()
     {
+
+        Vector2 attackRange = new Vector2(attackRangeX, attackRangeY);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackFront.position, attackRange, playerLayer);
+
+        switch (axis)
+        {
+            case 0:
+
+                hitEnemies = Physics2D.OverlapBoxAll(attackFront.position, attackRange, playerLayer);
+                break;
+
+            case 1:
+                attackRange = new Vector2(attackRangeY, attackRangeX);
+
+                if (lookingLeft)
+                {
+
+                    hitEnemies = Physics2D.OverlapBoxAll(attackLeft.position, attackRange, playerLayer);
+                }
+                else
+                {
+
+                    hitEnemies = Physics2D.OverlapBoxAll(attackRight.position, attackRange, playerLayer);
+                }
+                break;
+
+            case 2:
+
+                hitEnemies = Physics2D.OverlapBoxAll(attackBack.position, attackRange, playerLayer);
+
+                break;
+        }
+
+        
+        foreach (Collider2D enemy in hitEnemies)
+        {
+
+            if (enemy.tag == "Player")
+            {
+
+                if (enemy.name == ("Player"))
+                {
+                    Debug.Log("Attacking:" + enemy.name);
+                    enemy.GetComponent<PlayerMover>().TakeDamage(1);
+                }
+
+            }
+
+        }
+
         isAttacking = true;
         if (speed != 0)
         {
@@ -237,7 +304,11 @@ public class SkeletonPatterns : MonoBehaviour
         animator.SetBool("IsAttacking", true);
         animator.SetFloat("Speed", speed);
         yield return new WaitForSeconds(skeletonFrontAttack);
+
+        playAnimationOnce = false;
+
         animator.SetFloat("Speed", speed);
+        
     }
 
     public void UpdateAnimClipTimes()
@@ -280,7 +351,6 @@ public class SkeletonPatterns : MonoBehaviour
 
         if (dist < 0.7 && !isAttacking)
         {
-            Debug.Log("detect");
 
             if (Mathf.Abs(directionToTarget.x) < Mathf.Abs(directionToTarget.y) && Mathf.Abs(directionToTarget.x) > Mathf.Epsilon)
             {
@@ -353,9 +423,9 @@ public class SkeletonPatterns : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player" && !isDying)
+        if (collision.gameObject.name == "Player" && !isDying && !playAnimationOnce)
         {
-            Debug.Log("ON ATTACK");
+            playAnimationOnce = true;
             StartCoroutine(Attack());
         }
     }

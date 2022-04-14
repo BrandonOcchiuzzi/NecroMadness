@@ -144,7 +144,7 @@ public class PlayerMover : MonoBehaviour
         }
     }
     
-    void TakeDamage(int damage) //allows taking of damage and passes it to the health bar
+    public void TakeDamage(int damage) //allows taking of damage and passes it to the health bar
     {
         currentHealth -= damage; //sets current health based on dmg taken
         healthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
@@ -177,8 +177,6 @@ public class PlayerMover : MonoBehaviour
         switch (axis)
         {
             case 0:
-                Debug.Log("front");
-
                 hitEnemies = Physics2D.OverlapBoxAll(attackFront.position, attackRange, enemyLayers);
                 break;
 
@@ -187,21 +185,15 @@ public class PlayerMover : MonoBehaviour
 
                 if (lookingLeft)
                 {
-                    Debug.Log("left");
-
                     hitEnemies = Physics2D.OverlapBoxAll(attackLeft.position, attackRange, enemyLayers);
                 }
                 else
                 {
-                    Debug.Log("right");
-
                     hitEnemies = Physics2D.OverlapBoxAll(attackRight.position, attackRange, enemyLayers);
                 }
                 break;
 
             case 2:
-                Debug.Log("back");
-
                 hitEnemies = Physics2D.OverlapBoxAll(attackBack.position, attackRange, enemyLayers);
 
                 break;
