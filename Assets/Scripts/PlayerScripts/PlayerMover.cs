@@ -48,7 +48,6 @@ public class PlayerMover : MonoBehaviour
     public HealthBar healthBar;
     public int potion = 0;
 
-
     Vector2 moveDirection = Vector2.zero;
 
     Vector2 lastVelocity = Vector2.zero;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7360507226061845451}
   m_Layer: 8
   m_Name: GoldGate
-  m_TagString: Untagged
+  m_TagString: GoldGate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14449c7bad715547a5fe24ad8818baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: {fileID: 0}
+  hasGoldKey: 0
