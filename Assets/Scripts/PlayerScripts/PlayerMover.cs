@@ -46,6 +46,7 @@ public class PlayerMover : MonoBehaviour
     public int maxHealth = 10;
     public int currentHealth;
     public HealthBar healthBar;
+    public int potion = 0;
 
 
     Vector2 moveDirection = Vector2.zero;
@@ -64,6 +65,7 @@ public class PlayerMover : MonoBehaviour
 
         currentHealth = maxHealth; //sets hp to maxHealth upon load
         healthBar.SetMaxHealth(maxHealth); //SetMaxHealth Method in healthbar script
+
     }
 
     public void UpdateAnimClipTimes()
@@ -123,7 +125,8 @@ public class PlayerMover : MonoBehaviour
         {                                  //with taking damage. 
             TakeDamage(1);
         }
-        //*************************************************************
+        //*************************************************************   
+
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -149,8 +152,6 @@ public class PlayerMover : MonoBehaviour
         currentHealth -= damage; //sets current health based on dmg taken
         healthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
     }
-
-
 
     private void Attack(InputAction.CallbackContext context)
     {

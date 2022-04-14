@@ -32,7 +32,8 @@ public class Weapon : MonoBehaviour
     {
         bc2D = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        weapons = GameObject.Find("WeaponSlot").GetComponent<WeaponSlot>();
+        weapons = Transform.FindObjectOfType<WeaponSlot>().GetComponent<WeaponSlot>();
+        weaponSlot = Transform.FindObjectOfType<WeaponSlot>().GetComponent<Transform>();
         player = GameObject.Find("Player").GetComponent<PlayerMover>();
         playerController = new PlayerController();
         animator = gameObject.GetComponent<Animator>();

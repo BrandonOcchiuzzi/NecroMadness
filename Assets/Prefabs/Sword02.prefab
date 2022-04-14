@@ -95,7 +95,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -126,6 +126,10 @@ MonoBehaviour:
   weaponSlot: {fileID: 0}
   weapon: {fileID: 0}
   animator: {fileID: 0}
+  weapons: {fileID: 0}
+  weaponOnePicked: 0
+  weaponTwoPicked: 0
+  weaponThreePicked: 0
 --- !u!95 &-4219097120691737323
 Animator:
   serializedVersion: 3

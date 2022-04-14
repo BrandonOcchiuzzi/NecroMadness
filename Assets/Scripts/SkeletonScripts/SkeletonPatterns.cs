@@ -76,6 +76,7 @@ public class SkeletonPatterns : MonoBehaviour
         UpdateAnimClipTimes();
         weapon = FindObjectOfType<Weapon>();
         slot = GameObject.Find("WeaponSlot").GetComponent<WeaponSlot>();
+        player = GameObject.Find("Player");
         //currentHealth = health; //sets hp to maxHealth upon load
         //enemyHealthBar.SetMaxHealth(health); //SetMaxHealth Method in healthbar script
 
