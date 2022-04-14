@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Catacomb.unity
     guid: a55c9c1318e3597458a55e560ff50b13
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 01957307638b5d24d8ae2f0c7dedb7a7
   - enabled: 0
     path: Assets/Scenes/Village.unity
     guid: 2cda990e2423bbf4892e6590ba056729
