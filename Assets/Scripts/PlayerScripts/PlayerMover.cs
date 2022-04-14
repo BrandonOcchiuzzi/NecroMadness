@@ -128,7 +128,7 @@ public class PlayerMover : MonoBehaviour
         //*************************************************************   
 
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Heart")
@@ -146,11 +146,15 @@ public class PlayerMover : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-    
+
     public void TakeDamage(int damage) //allows taking of damage and passes it to the health bar
     {
         currentHealth -= damage; //sets current health based on dmg taken
         healthBar.SetHealth(currentHealth); //SetHealth Method in HealthBar Script
+        if (currentHealth == 0)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
     }
 
     private void Attack(InputAction.CallbackContext context)
@@ -209,11 +213,11 @@ public class PlayerMover : MonoBehaviour
 
                 if (enemy.name.Contains("Skeleton"))
                 {
-                enemy.GetComponent<SkeletonPatterns>().getHurt();
+                    enemy.GetComponent<SkeletonPatterns>().getHurt();
                 }
                 if (enemy.name.Contains("Crystal"))
                 {
-                enemy.GetComponent<SummoningCrystals>().getHurt();
+                    enemy.GetComponent<SummoningCrystals>().getHurt();
                 }
             }
 
