@@ -16,7 +16,7 @@ TextureImporter:
     second: blacksmith-001_3
   - first:
       213: -5147609302584764252
-    second: blacksmith-001_4
+    second: blacksmith_01
   - first:
       213: 6253960472744801613
     second: blacksmith-001_5
@@ -25,7 +25,7 @@ TextureImporter:
     second: blacksmith-001_6
   - first:
       213: 3015669980574860078
-    second: blacksmith-001_7
+    second: blacksmith_0
   - first:
       213: 5028423855920189932
     second: blacksmith-001_8
@@ -211,7 +211,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-001_4
+      name: blacksmith_01
       rect:
         serializedVersion: 2
         x: 31
@@ -274,7 +274,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blacksmith-001_7
+      name: blacksmith_0
       rect:
         serializedVersion: 2
         x: 28
