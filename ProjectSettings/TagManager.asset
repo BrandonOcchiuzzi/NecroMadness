@@ -9,6 +9,9 @@ TagManager:
   - Weapon1
   - Weapon2
   - Weapon3
+  - Key
+  - GoldGate
+  - SilverGate
   layers:
   - Default
   - TransparentFX

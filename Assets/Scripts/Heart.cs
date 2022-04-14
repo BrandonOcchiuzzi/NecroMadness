@@ -7,7 +7,7 @@ public class Heart : MonoBehaviour
     /*PlayerMover player;
     public int heal;
     public HealthBar healthBar;
-
+ 
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.tag == "Player")

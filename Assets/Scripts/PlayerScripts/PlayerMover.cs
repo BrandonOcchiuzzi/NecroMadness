@@ -47,8 +47,7 @@ public class PlayerMover : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     public int potion = 0;
-
-
+    
     Vector2 moveDirection = Vector2.zero;
 
     Vector2 lastVelocity = Vector2.zero;
@@ -128,7 +127,6 @@ public class PlayerMover : MonoBehaviour
         //*************************************************************   
 
     }
-    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Heart")
