@@ -8,11 +8,9 @@ public class HealthPotions : MonoBehaviour
     public GameObject potion01;
     public GameObject potion02;
     public GameObject potion03;
-    public HealthBar healthBar;
 
     private void Start()
     {
-        healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         playerMover = GameObject.Find("Player").GetComponent<PlayerMover>();
         potion01 = GameObject.Find("HPBottle01");
         potion02 = GameObject.Find("HPBottle02");
@@ -26,7 +24,7 @@ public class HealthPotions : MonoBehaviour
             if (playerMover.potion > 0)
             {
                 playerMover.currentHealth += 2;
-                healthBar.SetHealth(playerMover.currentHealth);
+                playerMover.healthBar.SetHealth(playerMover.currentHealth);
                 if (playerMover.potion == 3)
                     potion03.SetActive(false);
                 else if (playerMover.potion == 2)
