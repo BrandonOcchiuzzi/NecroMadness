@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {        
 
-        if (GameManager.instance != null) //ensures there is never more than 1 game mananger
+        /*if (GameManager.instance != null) //ensures there is never more than 1 game mananger
         {
             Destroy(gameObject);
             return;
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         SceneManager.sceneLoaded += LoadState;
-        DontDestroyOnLoad(gameObject); //ensures the game manager stays around scene to scene
+        DontDestroyOnLoad(gameObject); //ensures the game manager stays around scene to scene*/
     }
 
 

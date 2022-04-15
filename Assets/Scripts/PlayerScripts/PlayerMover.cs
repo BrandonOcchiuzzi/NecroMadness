@@ -26,6 +26,8 @@ public class PlayerMover : MonoBehaviour
 
     public LayerMask enemyLayers;
 
+    public AudioClip attackSound;
+
     //To change weaponslot position as per player movement
     public Transform weaponSlot;
 
@@ -89,7 +91,7 @@ public class PlayerMover : MonoBehaviour
     {
         playerController = new PlayerController();
 
-        if (GameManager.instance != null)
+        /*if (GameManager.instance != null)
         {
             Destroy (gameObject);
             return;
@@ -106,7 +108,7 @@ public class PlayerMover : MonoBehaviour
         if (sceneName == "NewVillage")
         {
             this.gameObject.transform.position = new Vector2(-3f, 2.7f);
-        }
+        }*/
     }
 
     void OnEnable()
@@ -174,6 +176,7 @@ public class PlayerMover : MonoBehaviour
         if (!attack)
         {
             attack = true;
+            AudioSource.PlayClipAtPoint(attackSound, transform.position, 1);
             animator.SetBool("isAttacking", true);
             StartCoroutine(StopAnim());
         }

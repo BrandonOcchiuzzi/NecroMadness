@@ -3,17 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class Portal : Collidable
 {
-    public string[] sceneNames;
+    //public string[] sceneNames;
     protected override void OnCollide(Collider2D coll)
     {
         if (coll.name == "Player")
         {
             //teleport the player
-            GameManager.instance.SaveState();
-            string sceneName = sceneNames[Random.Range(0, sceneNames.Length)];
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-            coll.transform.position = Vector2.zero;
+            //GameManager.instance.SaveState();
+            //string sceneName = sceneNames[Random.Range(0, sceneNames.Length)];
+            //UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            coll.transform.position = new Vector3(0, 13.25f, 0);
         }
-        //NEED TO FIND A WAY TO GO BACKWARDS WITH PORTALS
+        
     }
 }

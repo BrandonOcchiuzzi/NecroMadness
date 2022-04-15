@@ -8,10 +8,12 @@ public class Chest : MonoBehaviour
     //public int GoldAmount = 10;
     public PlayerMover player;
     public bool collected = false;
+    public FloatTextManager floatTextManager;
 
     private void Start()
     {
         player = GameObject.Find("Player").GetComponent<PlayerMover>();
+        floatTextManager = GameObject.Find("FloatTextManager").GetComponent<FloatTextManager>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -22,7 +24,7 @@ public class Chest : MonoBehaviour
             {
                 collected = true;
                 GetComponent<SpriteRenderer>().sprite = emptyChest;
-                GameManager.instance.ShowText("+ HP Bottle!", 50, Color.red, transform.position, Vector3.up * 25, 1.5f);
+                floatTextManager.Show("+ HP Bottle!", 50, Color.red, transform.position, Vector3.up * 25, 1.5f);
                 player.potion++;
             }
         }
