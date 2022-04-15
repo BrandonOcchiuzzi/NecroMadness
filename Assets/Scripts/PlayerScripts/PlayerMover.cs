@@ -26,6 +26,12 @@ public class PlayerMover : MonoBehaviour
 
     public LayerMask enemyLayers;
 
+    public AudioClip attackSound;
+
+    public AudioSource walkSound;
+
+    bool isMoving = false;
+
     //To change weaponslot position as per player movement
     public Transform weaponSlot;
 
@@ -138,6 +144,18 @@ public class PlayerMover : MonoBehaviour
 
         //*************************************************************
         if (currentHealth > maxHealth) currentHealth = maxHealth;
+
+        if (rbody.velocity.x != 0 || rbody.velocity.y != 0)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        if (isMoving)
+        {
+            if (!walkSound.isPlaying) walkSound.Play();
+        }
+        else
+            walkSound.Stop();
     }
 
     void OnTriggerEnter2D(Collider2D other)
