@@ -28,6 +28,10 @@ public class PlayerMover : MonoBehaviour
 
     public AudioClip attackSound;
 
+    public AudioSource walkSound;
+
+    bool isMoving = false;
+
     //To change weaponslot position as per player movement
     public Transform weaponSlot;
 
@@ -140,6 +144,19 @@ public class PlayerMover : MonoBehaviour
         //*************************************************************
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
+
+        if (rbody.velocity.x != 0 || rbody.velocity.y != 0)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        if (isMoving)
+        {
+            if (!walkSound.isPlaying)
+                walkSound.Play();
+        }
+        else
+            walkSound.Stop();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -337,9 +354,9 @@ public class PlayerMover : MonoBehaviour
             weaponSlot.transform.localPosition =
                 new Vector3(-0.05f, -0.035f, 0);
             weaponSlot.transform.localRotation = Quaternion.Euler(0, 70, 0);
-        }
+        }              
 
-        animator
+            animator
             .SetFloat("Speed", Mathf.Abs(rbody.velocity.x + rbody.velocity.y));
-    }
+    }  
 }
