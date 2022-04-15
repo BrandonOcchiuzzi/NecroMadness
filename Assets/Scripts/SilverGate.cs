@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SilverGate : MonoBehaviour
 {
     public bool hasSilverKey;
+    public AudioClip gateOpen;
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -23,6 +24,7 @@ public class SilverGate : MonoBehaviour
 
     IEnumerator GateOpenDelay()
     {
+        AudioSource.PlayClipAtPoint(gateOpen, transform.position, 1);
         yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
     }

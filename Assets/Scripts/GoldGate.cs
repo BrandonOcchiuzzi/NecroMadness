@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GoldGate : MonoBehaviour
 {    
     public bool hasGoldKey;
+    public AudioClip gateOpen;
     
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -22,8 +23,9 @@ public class GoldGate : MonoBehaviour
     }    
 
     IEnumerator GateOpenDelay()
-    {        
-        yield return new WaitForSeconds(2f);
+    {
+        AudioSource.PlayClipAtPoint(gateOpen, transform.position, 1);
+        yield return new WaitForSeconds(1.5f);
         Destroy(this.gameObject);          
     }
 }
