@@ -20,8 +20,7 @@ public class GameOverScript : MonoBehaviour
 
     public void restartBtn()
     {
-        SceneManager.LoadScene("NewVillage");
-        player.transform.position = new Vector2(-3f, 2.7f);
+        SceneManager.LoadScene("TotalScene");
     }
 
     public void exitBtn()
