@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused;
 
     public GameObject pauseMenuUI;
+
     public AudioMixer audioMixer;
 
     void Update()
@@ -18,7 +19,8 @@ public class PauseMenu : MonoBehaviour
             if (gameIsPaused)
             {
                 Resume();
-            } else
+            }
+            else
             {
                 Pause();
             }
@@ -43,6 +45,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Loading Options");
     }
+
     public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
@@ -52,6 +55,7 @@ public class PauseMenu : MonoBehaviour
     {
         audioMixer.SetFloat("music", music);
     }
+
     public void SetSound(float sound)
     {
         audioMixer.SetFloat("sound", sound);
