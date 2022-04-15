@@ -136,6 +136,8 @@ public class PlayerMover : MonoBehaviour
             TakeDamage(1);
         }
         //*************************************************************
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -145,12 +147,12 @@ public class PlayerMover : MonoBehaviour
             if (currentHealth < 5)
             {
                 currentHealth += 5;
-                healthBar.SetHealth (currentHealth);
+                //healthBar.SetHealth (currentHealth);
             }
             else
             {
                 currentHealth = maxHealth;
-                healthBar.SetHealth (currentHealth);
+                //healthBar.SetHealth (currentHealth);
             }
             Destroy(other.gameObject);
         }
@@ -160,7 +162,7 @@ public class PlayerMover : MonoBehaviour
     {
         Debug.Log("CARAJO");
         currentHealth -= damage; //sets current health based on dmg taken
-        healthBar.SetHealth (currentHealth); //SetHealth Method in HealthBar Script
+        //healthBar.SetHealth (currentHealth); //SetHealth Method in HealthBar Script
         if (currentHealth == 0)
         {
             SceneManager.LoadScene("Game Over");

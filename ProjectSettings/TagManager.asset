@@ -12,6 +12,7 @@ TagManager:
   - Key
   - GoldGate
   - SilverGate
+  - Necromancer
   layers:
   - Default
   - TransparentFX
@@ -81,4 +82,7 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 506852655
+    locked: 0
+  - name: Dialogue
+    uniqueID: 309999263
     locked: 0

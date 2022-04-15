@@ -9,11 +9,24 @@ public class HealthBar : MonoBehaviour
     public Slider slider; //references the slider component on the healthbar
     public Gradient gradient; // gradient adds a component to the healthbar that allows colour changes based on hp values
     public Image fill; //references the fill component of the healthbar
+    public PlayerMover player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player").GetComponent<PlayerMover>();
+        SetHealth(player.currentHealth);
+    }
+
+    private void Update()
+    {
+        SetHealth(player.currentHealth);
+        SetMaxHealth(player.maxHealth);
+    }
 
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health; //starts the slider component at set maxHealth
-        slider.value = health; //sets the slider value to current hp, called from SetHealth function
+        //slider.value = health; //sets the slider value to current hp, called from SetHealth function
 
         fill.color = gradient.Evaluate(1f); //fills the whole (remaining) bar the color chosen at each value
 
