@@ -5,6 +5,7 @@ using UnityEngine;
 public class Lightning : MonoBehaviour
 {
     public GameObject lightning;
+    //public AudioClip thunder;
 
     private void Update()
     {
@@ -13,6 +14,7 @@ public class Lightning : MonoBehaviour
         if (random == 15)
         {
             Instantiate(lightning, position, Quaternion.identity);
+            //AudioSource.PlayClipAtPoint(thunder, transform.position, 1);
         }
         
     }
