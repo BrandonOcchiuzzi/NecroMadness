@@ -20,13 +20,15 @@ public class Chest : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!collected && player.potion <= 3)
+            if (!collected && player.potion < 3)
             {
                 collected = true;
                 GetComponent<SpriteRenderer>().sprite = emptyChest;
                 floatTextManager.Show("+ HP Bottle!", 50, Color.red, transform.position, Vector3.up * 25, 1.5f);
                 player.potion++;
             }
+            else if (player.potion >= 3)
+                floatTextManager.Show("Limit Reached", 50, Color.red, transform.position, Vector3.up * 25, 1.5f);
         }
     }
 }

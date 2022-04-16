@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NecroMancerPatterns : MonoBehaviour
 {
@@ -65,7 +66,7 @@ public class NecroMancerPatterns : MonoBehaviour
         animator.SetBool("isDying", isDefeated);
 
         yield return new WaitForSeconds(attackTime);
-
+        SceneManager.LoadScene("EndScreen");
         Destroy(this.gameObject);
     }
 

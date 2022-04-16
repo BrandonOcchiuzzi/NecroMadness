@@ -95,7 +95,7 @@ public class PlayerMover : MonoBehaviour
     {
         playerController = new PlayerController();
 
-        if (GameManager.instance != null)
+        /*if (GameManager.instance != null)
         {
             Destroy (gameObject);
             return;
@@ -112,7 +112,7 @@ public class PlayerMover : MonoBehaviour
         if (sceneName == "NewVillage")
         {
             this.gameObject.transform.position = new Vector2(-3f, 2.7f);
-        }
+        }*/
     }
 
     void OnEnable()
